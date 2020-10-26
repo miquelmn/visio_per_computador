@@ -35,8 +35,8 @@ def on_click(name: str, fig, event):
 
 def run():
     # We read the images
-    img1 = cv2.imread("./in/llibre1.jpg")
-    img2 = cv2.imread("./in/llibre3.jpg")
+    img1 = cv2.imread("../in/llibre1.jpg")
+    img2 = cv2.imread("../in/llibre3.jpg")
 
     # We show the first image allowing to select the points.
     fig1 = plt.figure()

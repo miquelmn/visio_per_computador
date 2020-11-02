@@ -52,17 +52,5 @@ def run():
     plt.imshow(img2)
     plt.show()
 
-    # We find the homography
-    h, status = cv2.findHomography(np.array(punts["img_1"]),
-                                   np.array(punts["img_2"]))
-
-    # We change the persvective
-    im_out = cv2.warpPerspective(img1, h, (img2.shape[1], img2.shape[0]))
-
-    # We show the image warpped
-    plt.figure()
-    plt.imshow(im_out)
-    plt.show()
-
 
 run()

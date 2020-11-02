@@ -4,14 +4,22 @@ This repository contains all the examples seen on class.
 
 ## Install
 
+We can install this repository with or without conda.
+
+The first step is to download the repository
 ```
      git clone https://github.com/miquelmn/visio_per_computador.git
+```
+**Without conda**
+```
      pip install -r requirements.txt
+```
+**With conda**
+```
+    conda env create --file eviroment.yml
 ```
 
 ## Content
 ### Homografies
-+ ``manual.py``. Script on és seleccionen els punts d'interès de forma manual mitjançant l'ús d'una interfície gràfica.   
-+ ``billboard.py``. Emprant la mateixa tècnica que ``manual.py`` cream una imatge composta.
-+ ``autop.py``. Script a on es realitza l'homografia entre dues imatges de manera automàtica fent ús de descriptors com ORB.
++ ``manual.py``. To make an homography we select the points with a GUI.   
  

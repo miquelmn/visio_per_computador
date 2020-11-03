@@ -34,6 +34,15 @@ def on_click(name: str, fig, event):
 
 
 def run():
+    """
+
+    Links:
+        https://docs.opencv.org/master/d9/d0c/group__calib3d.html#ga4abc2ece9fab9398f2e560d53c8c9780
+        https://docs.opencv.org/master/d2/de8/group__core__array.html#gad327659ac03e5fd6894b90025e6900a7
+
+    Returns:
+
+    """
     # We read the images
     img1 = cv2.imread("../in/llibre1.jpg")
     img2 = cv2.imread("../in/llibre3.jpg")
@@ -51,6 +60,8 @@ def run():
                             lambda x: on_click("img_2", fig2, x))
     plt.imshow(img2)
     plt.show()
+
+    # CODE TO COMPLETE
 
 
 run()

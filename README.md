@@ -20,6 +20,6 @@ The first step is to download the repository
 ```
 
 ## Content
-### Homografies
+### Homographies
 + ``manual.py``. To make an homography we select the points with a GUI.   
  

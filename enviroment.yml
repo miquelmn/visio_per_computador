@@ -1,4 +1,4 @@
-name: homography
+name: visio_per_computador
 channels:
   - defaults
 dependencies:

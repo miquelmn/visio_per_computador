@@ -69,9 +69,16 @@ def run():
     im_out = cv2.warpPerspective(img1, h, (img2.shape[1], img2.shape[0]))
 
     # We show the image warpped
-    plt.figure()
-    plt.imshow(im_out)
-    plt.show()
+    plt.subplot(1, 3, 1)
+    plt.title("Warped")
+    plt.imshow(im_out, cmap="gray")
 
+    plt.subplot(1, 3, 2)
+    plt.imshow(img1, cmap="gray")
+
+    plt.subplot(1, 3, 3)
+    plt.imshow(img2, cmap="gray")
+
+    plt.show()
 
 run()

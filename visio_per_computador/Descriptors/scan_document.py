@@ -16,14 +16,22 @@ def run():
     """
 
     # We read the images
-    deformed_img = cv2.imread("../in/descriptors/photo_doc.jpg", 0)
-    scanned_img = cv2.imread("../in//descriptors/scanned.jpg", 0)
+    deformed_img = cv2.imread("../../in/descriptors/photo_doc.jpg", 0)
+    scanned_img = cv2.imread("../../in/descriptors/scanned.jpg", 0)
 
     kp1, desc1 = descriptors.get_kp_desc(method="sift", img=deformed_img)
     kp2, desc2 = descriptors.get_kp_desc(method="sift", img=scanned_img)
 
     matches = descriptors.match_descriptors(method="F", desc1=desc1,
                                             desc2=desc2, k=2)
+
+    # Draw the matches without filtering
+    res = cv2.drawMatches(deformed_img, kp1, scanned_img, kp2,
+                          [m[0] for m in matches], None,
+                          flags=cv2.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS)
+
+    plt.imshow(res)
+    plt.show()
 
     matches = descriptors.filter_matches(method="KNN", matches=matches,
                                          proportion=0.7)
@@ -32,8 +40,8 @@ def run():
     points2 = np.zeros((len(matches), 2), dtype=np.float32)
 
     for i, match in enumerate(matches):
-        points1[i, :] = kp1[match.queryIdx].pt
-        points2[i, :] = kp2[match.trainIdx].pt
+        points1[i, :] = kp1[match[0].queryIdx].pt
+        points2[i, :] = kp2[match[0].trainIdx].pt
 
     # Find homography
     h, mask = cv2.findHomography(points1, points2, cv2.RANSAC)

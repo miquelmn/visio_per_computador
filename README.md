@@ -21,5 +21,8 @@ The first step is to download the repository
 
 ## Content
 ### Homographies
-+ ``manual.py``. To make an homography we select the points with a GUI.   
++ ``manual.py``. To make an homography we select the points with a GUI.  
+
+### Descriptors
++ ``scan_document.py``. Converts a deformed photo of a document into a perfect scan 
  

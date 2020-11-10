@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """ Make an homography between two images.
 
 This script makes the homography between two images. To do so we select manually
@@ -44,8 +45,8 @@ def run():
 
     """
     # We read the images
-    img1 = cv2.imread("../in/llibre1.jpg")
-    img2 = cv2.imread("../in/llibre3.jpg")
+    img1 = cv2.imread("../../in/homografies/llibre1.jpg")
+    img2 = cv2.imread("../../in/homografies/llibre3.jpg")
 
     # We show the first image allowing to select the points.
     fig1 = plt.figure()
@@ -80,5 +81,6 @@ def run():
     plt.imshow(img2, cmap="gray")
 
     plt.show()
+
 
 run()

@@ -1,7 +1,5 @@
 # Overview 
 
-<img src="./doc/images/logo.png"/>
-
 This repository is a set of utilities and examples for the *Visió per Computador* subject of the *Master of Intelligent Systems* of the [UIB](https://www.uib.cat). 
 
 ## Install
@@ -26,7 +24,8 @@ The first step is to download the repository
 
 ### Homographies
 
-<img align="left" src="https://upload.wikimedia.org/wikipedia/commons/7/79/Hauck_Neue_Constructionen_der_Perspective_fig1a.png" /> A simple example of homographies. We select four points of two images to make an homography and warp one image to the plane of the other. The points are selected with a GUI based on ``matplotlib``.
+<img align="left" style="width:40%" src="https://upload.wikimedia.org/wikipedia/commons/7/79/Hauck_Neue_Constructionen_der_Perspective_fig1a.png" /> A simple example of homographies. We select four points of two images to make an homography and warp one image to the plane of the other. The points are selected with a GUI based on ``matplotlib``.
+<br/>
 <br/>
 <br/>
 <br/>

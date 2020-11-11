@@ -24,7 +24,7 @@ The first step is to download the repository
 
 ### Homographies
 
-<img align="left" style="width:40%" src="./doc/homografia.png" /> A simple example of homographies. We select four points of two images to make an homography and warp one image to the plane of the other. The points are selected with a GUI based on ``matplotlib``.
+<img align="left" style="width:40%" src="./doc/images/homografia.png" /> A simple example of homographies. We select four points of two images to make an homography and warp one image to the plane of the other. The points are selected with a GUI based on ``matplotlib``.
 <br/>
 <br/>
 <br/>

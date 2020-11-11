@@ -32,6 +32,12 @@ The first step is to download the repository
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 
 ### Descriptors
 <img align="left" style="width:40%" src="./doc/images/sift_keypoints.jpg" /> An example for the use of descriptors: scanning a document. To do so we extract the descriptors from two images and we make an homography.

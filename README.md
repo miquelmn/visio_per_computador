@@ -1,6 +1,8 @@
-# Visió per computador 2020-2021 - UIB 
+# Overview 
 
-This repository contains all the examples seen on class. 
+<img src="./doc/images/logo.png"/>
+
+This repository is a set of utilities and examples for the *Visió per Computador* subject of the *Master of Intelligent Systems* of the [UIB](https://www.uib.cat). 
 
 ## Install
 
@@ -20,8 +22,17 @@ The first step is to download the repository
 ```
 
 ## Content
+
+
 ### Homographies
-+ ``manual.py``. To make an homography we select the points with a GUI.  
+
+<img align="left" src="https://upload.wikimedia.org/wikipedia/commons/7/79/Hauck_Neue_Constructionen_der_Perspective_fig1a.png" /> A simple example of homographies. We select four points of two images to make an homography and warp one image to the plane of the other. The points are selected with a GUI based on ``matplotlib``.
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 ### Descriptors
 + ``scan_document.py``. Converts a deformed photo of a document into a perfect scan 

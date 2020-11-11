@@ -34,5 +34,13 @@ The first step is to download the repository
 <br/>
 
 ### Descriptors
-+ ``scan_document.py``. Converts a deformed photo of a document into a perfect scan 
- 
+<img align="left" style="width:40%" src="./doc/images/sift_keypoints.jpg" /> An example for the use of descriptors: scanning a document. To do so we extract the descriptors from two images and we make an homography.
+
+We develop a small module (``common\descriptors.py``)with a set of functions to get the keypoints and descriptors, match two sets of descriptors and filter the matches
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

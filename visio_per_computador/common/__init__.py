@@ -1,1 +1,1 @@
-from . import descriptors
+from . import geometry

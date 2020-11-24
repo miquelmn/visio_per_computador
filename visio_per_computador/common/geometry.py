@@ -1,14 +1,97 @@
 # -*- coding: utf-8 -*-
-""" Module containing a set of function to work with descriptors
-
-This module contains three functions that allow, respectively: get the
-descriptors and the keypoints, match descriptors and filter the matches.
-
-Multiple methods are available in each function.
-
+""" Module containing a set of function to work with descriptors and geometry
 """
 import cv2
 import numpy as np
+from typing import Tuple
+
+ORG_2_HMG = 1
+HMG_2_ORG = 2
+
+
+def convert(coordinates, img: np.ndarray, code: int):
+    """ Convert coordinates from image system to homogenous system and vice
+    versa.
+
+    The function converts an input coordinate from coordinate system to another.
+    To do so we need the shape of the images.
+
+    Args:
+        coordinates:
+        img:
+        code:
+
+    Returns:
+
+    """
+    if code != ORG_2_HMG and code != HMG_2_ORG:
+        raise TypeError("Unknown operation")
+
+    if code == ORG_2_HMG:
+        return __to_homogenous(coordinates, (img.shape[1], img.shape[0]))
+    elif code == HMG_2_ORG:
+        return __to_original(coordinates, (img.shape[1], img.shape[0]))
+
+
+def __to_homogenous(coordinates: Tuple[int, int], size: Tuple[int, int]):
+    """ Converts coordinates from an image to homogenous system.
+
+    Args:
+        coordinates:
+        size:
+
+    Returns:
+
+    """
+    semi_axis = np.array(size) / 2
+
+    w = ((size[0] + size[1]) / 4)
+
+    homogenous = np.array([coordinates[0] - semi_axis[0], coordinates[1] - semi_axis[1]])
+    homogenous = np.append(homogenous, [w])
+
+    return tuple(homogenous)
+
+
+def __to_original(coordinates: Tuple[int, int], size: Tuple[int, int]):
+    semi_axis = np.array(size) / 2
+
+    w = ((size[0] + size[1]) / 4)
+
+    original_x = int(((coordinates[0] / coordinates[-1]) * w) + semi_axis[1])
+    original_y = int(((coordinates[1] / coordinates[-1]) * w) + semi_axis[0])
+
+    return original_x, original_y
+
+
+def draw_epipolar_lines(img1: np.ndarray, img2: np.ndarray, lines, pts1, pts2):
+    """ We draw a set of lines and points on the images passed as parameter.
+
+    Args:
+        img1 (np.ndarray): First image to draw the epipolar images
+        img2 (np.ndarray): Second image to draw the epipolar images
+        lines (List): A set of epipolar lines
+        pts1 (List[Tuple[int,int]]): A list of points in the first image. The
+            first part of a matching
+        pts2 (List[Tuple[int,int]]): A list of points in the second image. The
+            second part of a matching
+
+    Returns:
+
+    """
+    r, c = img1.shape
+    img1 = cv2.cvtColor(img1, cv2.COLOR_GRAY2BGR)
+    img2 = cv2.cvtColor(img2, cv2.COLOR_GRAY2BGR)
+    for r, pt1, pt2 in zip(lines, pts1, pts2):
+        color = tuple(np.random.randint(0, 255, 3).tolist())
+        x0, y0 = map(int, [0, -r[2] / r[1]])
+        x1, y1 = map(int, [c, -(r[2] + r[0] * c) / r[1]])
+
+        img1 = cv2.line(img1, (x0, y0), (x1, y1), color, 1)
+        img1 = cv2.circle(img1, tuple(pt1), 5, color, -1)
+        img2 = cv2.circle(img2, tuple(pt2), 5, color, -1)
+
+    return img1, img2
 
 
 def get_kp_desc(method: str, img: np.ndarray, **kwargs):
